@@ -11,6 +11,7 @@ public:
 	ListElement *first;
 	ListElement *last;
 	ListElement *current;
+	int size;
 
 	void addHead(int data);
 
