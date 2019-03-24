@@ -63,7 +63,10 @@ void List::addMiddle(int data, int position)
 {
 	if(position > 0 && position < size)
 	{
-		
+		if(position < 0 || position > size)
+		{
+			
+		}
 
 		
 	}
