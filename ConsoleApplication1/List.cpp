@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "List.h"
 #include <cstddef>
+#include <iostream>
 
 
 List::List()
@@ -30,6 +31,7 @@ void List::addHead(int data)
 	{
 		first = new ListElement(data, NULL, NULL);
 		last = first;
+		size++;
 	}
 	else
 	{
@@ -37,7 +39,9 @@ void List::addHead(int data)
 		
 		first = new ListElement(data, current, NULL);
 
-		current->previuos = first;
+		current->previous = first;
+
+		size++;
 	}
 }
 
@@ -47,12 +51,14 @@ void List::addTail(int data)
 	{
 		first = new ListElement(data, NULL, NULL);
 		last = first;
+		size++;
 	}
 	else
 	{
 		current = last;
 		last = new ListElement(data, NULL, current);
 		current->next = last;
+		size++;
 	}
 
 
@@ -61,26 +67,51 @@ void List::addTail(int data)
 
 void List::addMiddle(int data, int position)
 {
-	if(position > 0 && position < size)
+	if(position >= 0 && position < size)
 	{
-		for(int i = 1; i < size ; i++)
+
+		current = first;
+		
+		for(int i = 0; i <= size ; i++)
 		{
-			current = current->next;
-			
 			if(i == position)
 			{
-				ListElement newElement = ListElement(data, current->next, current);
+				
+				if(i == 0)
+				{
+					List::addHead(data);
+					return;
+				}
+				else
+				{
+					if (i == size)
+					{
+						List::addTail(data);
+						return;
+					}else
+					{
+						current->previous->next = new ListElement(data, current, current->previous);
+						current->previous = current->previous->next;
+						return;
+					}
+				}
 			}
-
-
-		}
-
-
-
-		
+			current = current->next;
+		}		
 	}
+
+	size++;
 }
 
+void List::removeHead()
+{
+	if (size == 0)std::cout << "nie ma czego usuwac";
+	current = first->next;
+	current->previous = NULL;
+	delete first;
+	first = current;
+
+}
 
 
 
