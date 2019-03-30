@@ -27,7 +27,7 @@ public:
 
 	void print();
 
-	void exsists();
+	bool exsists(int data);
 
 	
 

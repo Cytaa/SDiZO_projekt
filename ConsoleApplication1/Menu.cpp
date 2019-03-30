@@ -11,28 +11,12 @@ int main()
 	list->addHead(2);
 	list->addHead(3);
 	list->addTail(0);
-	list->addMiddle(9, 1);
-
-	list->removeHead();
-	list->removeHead();
 	
-	//std::cout << list->size;
-	list->current = list->first;
+	list->removeMiddle(1);
 
-	for(int i = 0; i < list->size; i++)
-	{
+	list->print();
+
 		
-		std::cout << list->current->data;
-		if(i < list->size -1)
-		{
-		list->current =	list->current->next;
-		}
-		
-		
-			
-		
-	}
-	
 
 
 	system("PAUSE");

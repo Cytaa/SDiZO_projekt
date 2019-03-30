@@ -110,13 +110,86 @@ void List::removeHead()
 	current->previous = NULL;
 	delete first;
 	first = current;
+	size--;
+}
 
+
+void List::removeTail()
+{
+	if(size == 0)std::cout << "nie ma czego usuwac";
+	current = last;
+	current->previous->next = NULL;
+	last = current->previous;
+
+	delete current;
+	size--;
+}
+
+void List::removeMiddle(int position)
+{
+	if (position >= 0 && position < size)
+	{
+		if(position == 0 )
+		{
+			List::removeHead();
+			return;
+		}
+		
+		if(position == size - 1)
+		{
+			List::removeTail();
+			return;
+		}
+
+		current = first->next;
+		
+		for (int i = 1; i <= size; i++)
+		{
+
+			if(i == position)
+			{
+				current->previous->next = current->next;
+				current->next->previous = current->previous;
+				delete current;
+				size--;
+			}
+		
+		}
+
+	}
 }
 
 
 
 
 
+void List::print()
+{
+	current = first;
+
+	for(int i = 0; i < size; i++)
+	{
+		std::cout << "[" << current->data << "], ";
+
+		current = current->next;
+	}
+}
+
+
+bool List::exsists(int data)
+{
+	current = first;
+	
+	for(int i = 0; i < size; i++)
+	{
+		if(data == current->data)
+		{
+			return true;
+		}
+		current = current->next;
+	}
+	return false;
+}
 
 
 
