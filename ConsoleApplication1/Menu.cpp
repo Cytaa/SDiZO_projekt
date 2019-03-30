@@ -5,16 +5,7 @@
 
 int main()
 {
-	List* list = new List();
 
-	list->addHead(1);
-	list->addHead(2);
-	list->addHead(3);
-	list->addTail(0);
-	
-	list->removeMiddle(1);
-
-	list->print();
 
 		
 
