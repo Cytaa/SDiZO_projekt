@@ -82,14 +82,26 @@ void Heap::repair()
 
 void Heap::remove(int data)
 {
+	int* newArray = new int[size - 1];
+	int i = 0;
+	int y = 0;
 	
-	for(int i = 0;i < size; i++)
+	for(i ;i < size - 1; i++)
 	{
+		
 		if(array[i] == data)
 		{
-			
+			y++;
 		}
+		newArray[i] = array[y];
+
+		y++;
 	}
+	delete[] array;
+
+	array = newArray;
+	size--;
+	repair();
 }
 
 void Heap::print()
@@ -98,5 +110,6 @@ void Heap::print()
 	{
 		std::cout <<"["<< array[i] << "] ";
 	}
+	std::cout << std::endl;
 }
 

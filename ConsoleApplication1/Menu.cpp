@@ -23,6 +23,9 @@ int main()
 	
 	heap->print();
 
+	heap->remove(7);
+
+	heap->print();
 		
 
 
