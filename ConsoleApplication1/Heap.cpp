@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "Heap.h"
 #include <cstddef>
+#include <iostream>
 
 
 Heap::Heap()
@@ -21,32 +22,81 @@ Heap::~Heap()
 
 void Heap::add(int data)
 {
-	int *newArray = new int[size + 1];
-
-	for(int i = 0; i < size; i++)
+	if(size == 0)
 	{
-		newArray[i] = array[i];
+		int *newArray = new int[1];
+
+		newArray[0] = data;
+
+		delete[] array;
+		
+		array = newArray;
+
+		size++;
+
+		repair();
 	}
-	newArray[size] = data;
+	else
+	{
+		int *newArray = new int[size + 1];
 
-	delete[] array;
+		for(int i = 0; i < size; i++)
+		{
+			newArray[i] = array[i];
+		}
+		
 
-	array = newArray;
-	size++;
-	repair();
+		newArray[size] = data;
+
+		delete[] array;
+
+		array = newArray;
+
+		size++;
+		
+		repair();
+	}
+
+
 }
 
 void Heap::repair()
 {
 	int helper;
-
-	for(int i = size; 0 < i; i--)
+	for (int y = size; y >= 0; y--)
 	{
-		if(array[i - 1] < array[i])
+		for (int i = y; i >= 0; i--)
 		{
-			helper = array[i - 1];
-			array[i - 1] = array[i];
-			array[i] = helper;
+			if (array[(i - 1) / 2] < array[i])
+			{
+				helper = array[(i - 1) / 2];
+
+				array[(i - 1) / 2] = array[i];
+
+				array[i] = helper;
+			}
 		}
 	}
 }
+
+
+void Heap::remove(int data)
+{
+	
+	for(int i = 0;i < size; i++)
+	{
+		if(array[i] == data)
+		{
+			
+		}
+	}
+}
+
+void Heap::print()
+{
+	for (int i = 0; i < size; i++)
+	{
+		std::cout <<"["<< array[i] << "] ";
+	}
+}
+
