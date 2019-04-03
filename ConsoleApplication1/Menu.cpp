@@ -2,33 +2,23 @@
 #include "Array.h"
 #include "List.h"
 #include "Heap.h"
+#include "PUDialog.h"
 #include <iostream>
+
+
+
+
+
+
+
 
 int main()
 {
-	Heap* heap = new Heap;
+	PUDialog* menu = new PUDialog;
 
-	heap->add(1);
-	heap->add(2);
-	heap->add(3);
-	heap->add(4);
-	heap->add(5);
-	heap->add(6);
-	heap->add(2);
-	heap->add(9);
-	heap->add(7);
-	heap->add(1);
+	menu->showMenu();
+
 	
-	
-	
-	heap->print();
-
-	heap->remove(7);
-
-	heap->print();
-		
-
-
 	system("PAUSE");
 	return 0;
 }
