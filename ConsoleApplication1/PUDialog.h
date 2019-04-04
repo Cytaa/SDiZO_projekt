@@ -10,7 +10,7 @@ public:
 	
 	~PUDialog();
 	
-	int chooser = 0;
+	int chooser;
 
 	int helper;
 
@@ -26,5 +26,9 @@ private:
 	void arrayAddingOptions(Array *array);
 
 	void arrayRemovingOptions(Array *array);
+
+	void listAddingOptions(List *list);
+
+	void listRemovingOptions(List *list);
 };
 

@@ -8,7 +8,8 @@
 
 PUDialog::PUDialog()
 {
-
+	chooser = 0;
+	helper = 0;
 }
 
 
@@ -44,9 +45,9 @@ void PUDialog:: showMenu()
 
 		break;
 	case 2:
-		std::cout << "Co chcesz zrobic na liscie\n";
-
 		system("CLS");
+		std::cout << "Co chcesz zrobic na liscie\n";
+		listOptions(list);
 		
 		
 		break;
@@ -125,8 +126,48 @@ void PUDialog::arrayOptions( Array *array)
 
 void PUDialog::listOptions(List *list)
 {
-	std::cout << "1)Wyswietl liste\n2)Dodaj element do list\n3)Usun element z listy\n";
+	
+	std::cout << "1)Wyswietl liste\n2)Dodaj element do list\n3)Usun element z listy\n4)Powrot do poprzedniego menu\n";
 
+	std::cin >> chooser;
+
+	switch (chooser)
+	{
+	case 1:
+		system("CLS");
+		if(list->size != 0)
+		{
+			list->print();
+		}
+		else
+		{
+			system("CLS");
+			std::cout << "Lista jest pusta, nie ma czego wypisywac\n";
+
+			listOptions(list);
+			
+		}
+		listOptions(list);
+		break;
+	case 2:
+		
+		listAddingOptions(list);
+		break;
+	case 3:
+		system("CLS");
+		break;
+	case 4:
+		system("CLS");
+
+		showMenu();
+		break;
+	default:
+		system("CLS");
+
+		listOptions(list);
+		break;
+
+	}
 }
 
 void PUDialog::arrayAddingOptions(Array* array)
@@ -223,6 +264,44 @@ void PUDialog::arrayRemovingOptions(Array* array)
 		std::cout << "Zostala wprowadzona bledna wartosc, ponow wybor\n";
 		arrayRemovingOptions(array);
 		break;
+	}
+
+}
+
+void PUDialog::listAddingOptions(List* list)
+{
+	system("CLS");
+	std::cout << "1)Dodaj na poczatek\n2)Dodaj na koniec\n3)Dodaj na konkretna pozycje\n4)Wroc do poprzedniego menu\n";
+	
+	std::cin >> chooser;
+
+	switch (chooser)
+	{
+		case 1:
+			system("CLS");
+			std::cout << "Wprowadz wartosc ktora chcesz dodac do listy\n";
+			std::cin >> chooser;
+			list->addHead(chooser);
+			listOptions(list);
+			break;
+		case 2:
+			system("CLS");
+			std::cout << "Wprowadz wartosc ktora chcesz dodac do listy\n";
+			std::cin >> chooser;
+			list->addTail(chooser);
+			listOptions(list);
+			break;
+		case 3:
+			system("CLS");
+			std::cout << "Wprowadz wartosc, oraz pozycje, liczby ktora chcesz dodac do listy\n";
+			std::cin >> chooser;
+			std::cin >> helper;
+			list->addMiddle(chooser, helper);
+			listOptions(list);
+			break;
+		case 4:
+			system("CLS");
+			listOptions(list);
 	}
 
 }
