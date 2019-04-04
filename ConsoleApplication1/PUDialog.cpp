@@ -154,7 +154,7 @@ void PUDialog::listOptions(List *list)
 		listAddingOptions(list);
 		break;
 	case 3:
-		system("CLS");
+		listRemovingOptions(list);
 		break;
 	case 4:
 		system("CLS");
@@ -279,6 +279,7 @@ void PUDialog::listAddingOptions(List* list)
 	{
 		case 1:
 			system("CLS");
+
 			std::cout << "Wprowadz wartosc ktora chcesz dodac do listy\n";
 			std::cin >> chooser;
 			list->addHead(chooser);
@@ -302,6 +303,57 @@ void PUDialog::listAddingOptions(List* list)
 		case 4:
 			system("CLS");
 			listOptions(list);
+	}
+
+}
+
+void PUDialog::listRemovingOptions(List* list)
+{
+	
+	system("CLS");
+	std::cout << "Wybierz opcje usuwania:\n1)Usun wartosc z poczatku list\n2)Usun wartosc z konca listy\n3)Usun wartosc o danym indeksie\n4)Wroc do poprzedniego menu\n";
+	std::cin >> chooser;
+
+	switch (chooser)
+	{
+		case 1:
+			
+			system("CLS");
+			if(list->size != 0)
+			{
+				list->removeHead();
+			}
+			else
+			{
+				std::cout << "Nie ma czego usuwac\n";
+			}
+			system("CLS");
+			listOptions(list);
+			break;
+		case 2:
+			if (list->size != 0)
+			{
+				list->removeTail();
+			}
+			else
+			{
+				std::cout << "Nie ma czego usuwac\n";
+			}
+			system("CLS");
+			listOptions(list);
+			break;
+		case 3:
+			std::cout << "Podaj pozycje z ktorej chcesz usunac wartosc\n";
+			std::cin >> chooser;
+
+			list->removeMiddle(chooser);
+			system("CLS");
+			listOptions(list);
+			break;
+		case 4:
+			system("CLS");
+			listOptions(list);
+	
 	}
 
 }

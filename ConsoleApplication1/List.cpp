@@ -105,12 +105,14 @@ void List::addMiddle(int data, int position)
 
 void List::removeHead()
 {
-	if (size == 0)std::cout << "nie ma czego usuwac";
-	current = first->next;
-	current->previous = NULL;
-	delete first;
-	first = current;
-	size--;
+	if (size != 0)
+	{
+		current = first->next;
+		current->previous = NULL;
+		delete first;
+		first = current;
+		size--;
+	}
 }
 
 
