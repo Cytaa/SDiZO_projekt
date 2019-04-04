@@ -199,5 +199,5 @@ void Array::printArray()
 		std::cout <<"\n";
 	}
 	else
-		std::cout << "Nie ma czego wypisywac\n";
+		std::cout << "Tablica jest pusta, nie ma czego wypisywac\n";
 }
