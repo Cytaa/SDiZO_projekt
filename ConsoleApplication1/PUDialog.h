@@ -17,14 +17,14 @@ public:
 	void showMenu();
 
 private:
-	void clearConsole();
-	
 	void arrayOptions(Array *array);
 
 	void listOptions(List *list);
 	
 	void heapOptions(Heap *heap);
 
-	void initializations();
+	void arrayAddingOptions(Array *array);
+
+	void arrayRemovingOptions(Array *array);
 };
 

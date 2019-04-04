@@ -37,68 +37,84 @@ void PUDialog:: showMenu()
 	switch (chooser)
 	{
 	case 1:
-		std::cout << "Co chcesz zrobic na tablicy\n";
 		
+		system("CLS");
+		std::cout << "Co chcesz zrobic na tablicy\n";
 		arrayOptions(array);
 
 		break;
 	case 2:
 		std::cout << "Co chcesz zrobic na liscie\n";
 
+		system("CLS");
 		
 		
 		break;
 	case 3:
 		std::cout << "Co chcesz zrobic na kopcu\n";
 
+		system("CLS");
+		
 		
 
 		break;
 	default:
-		std::cout << "Zle wybrana opcja\n";
-		clearConsole();
+		system("CLS");
+		
 		showMenu();
-
+		
+		std::cout << "Zle wybrana opcja\n";
 		break;
 	}
 }
 
-void PUDialog:: clearConsole()
-{
-	std::cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
-}
 
 void PUDialog::arrayOptions( Array *array)
 {
-	std::cout << "1) Wyswietl tablice\n2) Dodaj n elementow do tablicy\n3) Usun element z tablicy\n4) Sprawdz czy dany element znajduje sie w tablicy\n ";
+	std::cout << "1)Wyswietl tablice\n2)Dodaj element/y do tablicy\n3)Usun element z tablicy\n4)Powrot do poprzedniego menu ";
 	std::cin >> chooser;
 	
 	switch (chooser)
 	{
 	case 1:
+		system("CLS");
+		
 		array->printArray();
 
 		arrayOptions(array);
 
 		break;
 	case 2:
-		std::cout << "Podaj ile elementow chcesz wpisac\n";
-		std::cin >> chooser;
 		
-		std::cout << "Wpisz wartosci";
+		system("CLS");
 		
-		for(int i = 0; i < chooser; i++)
-		{
-			std::cin >> helper;
-			
-			array->addHead(helper);
-		}
-		
-		arrayOptions(array);
+		PUDialog::arrayAddingOptions(array);
 
 		break;
+	case 3:
+		
+		system("CLS");
+		
+		array->removeHead();
+		
+		std::cout << "zostal usuniety element z poczatku tablicy";
+		
+		arrayOptions(array);
+		
+		break;
+	case 4:
+		system("CLS");
+
+
+		showMenu();
 	default: 
-		chooser = 0;
+		
+		system("CLS");
+		
+		std::cout << "BLAD!\nZle wybrany nr indeksu.";
+		
+		arrayOptions(array);
+		
 		break;
 	}
 
@@ -110,9 +126,69 @@ void PUDialog::listOptions(List *list)
 	std::cout << "";
 }
 
-void PUDialog::initializations()
+void PUDialog::arrayAddingOptions(Array* array)
 {
+	std::cout << "1)Dodaj na poczatek\n2)Dodaj na koniec\n3)Dodaj na konkretna pozycje\n";
 	
+	std::cin >> chooser;
+	
+	
+	switch(chooser)
+	{
+	case 1:
+		std::cout << "Podaj ile elementow chcesz wpisac\n";
+		std::cin >> chooser;
 
+		std::cout << "Wpisz wartosci";
+
+		for (int i = 0; i < chooser; i++)
+		{
+			std::cin >> helper;
+
+			array->addHead(helper);
+		}
+		system("CLS");
+		arrayOptions(array);
+		break;
+	case 2:
+		std::cout << "Podaj ile elementow chcesz wpisac\n";
+		std::cin >> chooser;
+
+		std::cout << "Wpisz wartosci";
+
+		for (int i = 0; i < chooser; i++)
+		{
+			std::cin >> helper;
+
+			array->addTail(helper);
+		}
+		system("CLS");
+		arrayOptions(array);
+		break;
+	case 3:
+		std::cout << "Wpisz wartosc, a nastepnie pozycje na ktora chcesz dodac";
+		std::cin >> chooser;
+		std::cin >> helper;
+
+		array->addInTheMidle(chooser,helper);
+		
+		system("CLS");
+		
+		arrayOptions(array);
+		break;
 	
+	}
+}
+
+
+
+
+
+void PUDialog::arrayRemovingOptions(Array* array)
+{
+	std::cout << "Wybierz opcje usuwania";
+	std::cin >> chooser;
+
+
+
 }

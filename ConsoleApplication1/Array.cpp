@@ -57,20 +57,51 @@ void Array::addInTheMidle(int data, int position)
 		
 		newHead[position] = data;
 
-		for(int i = 0; i < size+1; i++)
+		if(position == 0)
 		{
-			if( i < position)
+			Array::addHead(data);
+		}
+		else
+		{
+			if(position == size)
 			{
-				newHead[i] = head[i];
+				Array::addTail(data);
 			}
 			else
 			{
-				newHead[i] = head[i - 1];
+				newHead[position] = data;
+				for (int i = 0; i < size + 1; i++)
+				{
+					
+					
+					
+					if (i < position)
+					{
+						newHead[i] = head[i];
+					}
+					else
+					{
+						newHead[i + 1] = head[i];
+					}
+					
+				}
+				size++;
+
+				delete head;
+
+				head = newHead;
+
+			
+			
+			
+			
 			}
 		}
-		delete[] head;
-		head = newHead;
-		size++;
+		
+		
+		
+		
+		
 		}
 }
 
