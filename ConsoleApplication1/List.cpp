@@ -171,10 +171,11 @@ void List::print()
 
 	for(int i = 0; i < size; i++)
 	{
-		std::cout << "[" << current->data << "], ";
+		std::cout << "[" << current->data << "] ";
 
 		current = current->next;
 	}
+	std::cout << "\n";
 }
 
 

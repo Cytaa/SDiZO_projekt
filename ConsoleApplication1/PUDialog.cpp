@@ -158,7 +158,7 @@ void PUDialog::listOptions(List *list)
 		break;
 	case 4:
 		system("CLS");
-
+		
 		showMenu();
 		break;
 	default:
@@ -279,17 +279,29 @@ void PUDialog::listAddingOptions(List* list)
 	{
 		case 1:
 			system("CLS");
-
-			std::cout << "Wprowadz wartosc ktora chcesz dodac do listy\n";
-			std::cin >> chooser;
-			list->addHead(chooser);
+			std::cout << "Podaj ilosc elementow ktora chcesz dodac do listy\n";
+			std::cin >> helper;
+			std::cout << "Wprowadz wartosci ktora chcesz dodac do listy\n";
+			for(int i = 0 ;i < helper; i++ )
+			{
+				std::cin >> chooser;
+				list->addHead(chooser);
+			}
+			
+			system("CLS");
 			listOptions(list);
 			break;
 		case 2:
 			system("CLS");
-			std::cout << "Wprowadz wartosc ktora chcesz dodac do listy\n";
-			std::cin >> chooser;
-			list->addTail(chooser);
+			std::cout << "Podaj ilosc elementow ktora chcesz dodac do listy\n";
+			std::cin >> helper;
+			std::cout << "Wprowadz wartosci ktora chcesz dodac do listy\n";
+			for (int i = 0; i < helper; i++)
+			{
+				std::cin >> chooser;
+				list->addTail(chooser);
+			}
+			system("CLS");
 			listOptions(list);
 			break;
 		case 3:
@@ -356,4 +368,50 @@ void PUDialog::listRemovingOptions(List* list)
 	
 	}
 
+}
+
+void PUDialog::heapOptions(Heap* heap)
+{
+
+	std::cout << "1)Wyswietl kopca\n2)Dodaj element do kopca\n3)Usun element z kopca\n4)Powrot do poprzedniego menu\n";
+
+	std::cin >> chooser;
+
+	switch (chooser)
+	{
+	case 1:
+		system("CLS");
+		if (heap->size != 0)
+		{
+			heap->print();
+		}
+		else
+		{
+			system("CLS");
+			std::cout << "Kopiec jest pusty, nie ma czego wypisywac\n";
+
+			heapOptions(heap);
+
+		}
+		heapOptions(heap);
+		break;
+	case 2:
+
+		//heapAddingOptions(heap);
+		break;
+	case 3:
+		//heapRemovingOptions(heap);
+		break;
+	case 4:
+		system("CLS");
+
+		showMenu();
+		break;
+	default:
+		system("CLS");
+
+		heapOptions(heap);
+		break;
+
+	}
 }
