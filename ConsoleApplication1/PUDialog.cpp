@@ -366,6 +366,9 @@ void PUDialog::listRemovingOptions(List* list)
 		case 4:
 			system("CLS");
 			listOptions(list);
+		default:
+			std::cout << "Wprowadzony zostal zly indeks\n";
+			listRemovingOptions(list);
 	
 	}
 
@@ -409,7 +412,12 @@ void PUDialog::heapOptions(Heap* heap)
 		system("CLS");
 		break;
 	case 3:
-		
+		std::cout << "wpisz liczbe ktorej chcesz sie pozbyc\n";
+		std::cin >> chooser;
+		heap->remove(chooser);
+		system("CLS");
+		heapOptions(heap);
+
 		break;
 	case 4:
 		system("CLS");

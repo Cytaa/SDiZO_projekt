@@ -82,32 +82,56 @@ void Heap::repair()
 
 void Heap::remove(int data)
 {
-	int* newArray = new int[size - 1];
-	int y = 0;
-	
-	for(int i = 0 ;i < size - 1; i++)
+	for(int i = 0; i < size; i++)
 	{
-		
-		if(array[i] == data)
+		if (array[i] == data)
 		{
-			y++;
+			int *newArray = new int[size - 1];
+
+			for (int y = 0; y < i; y++)
+			{
+				newArray[y] = array[y];
+			}
+
+			for(int y = 0;y < size; y++)
+			{
+				newArray[y - 1] = array[y];
+			}
+
+			delete[] array;
+
+			array = newArray;
+
+			size--;
+
 		}
-		newArray[i] = array[y];
-
-		y++;
 	}
-	delete[] array;
-
-	array = newArray;
-	size--;
 	repair();
 }
 
 void Heap::print()
 {
-	for (int i = 0; i < size; i++)
+	if (size == 0)
 	{
-		std::cout <<"["<< array[i] << "] ";
+	std::cout << "Kopiec jest pusty" << std::endl;
+		return;
+	}
+	int iter = 1;
+	int sum = 0;
+	for (int i = 1; i <= 1 + floor(log2(size)); i++)
+	{
+		std::cout << "Poziom " << i << ": ";
+
+		for (int j = 0; j < iter; j++)
+		{
+			if ((j + sum) < size)
+			{
+				std::cout << array[j + sum] << ", ";
+			}
+		}
+		sum += iter;
+		iter = iter * 2;
+		std::cout << std::endl;
 	}
 	std::cout << std::endl;
 }
