@@ -30,5 +30,6 @@ private:
 	void listAddingOptions(List *list);
 
 	void listRemovingOptions(List *list);
+
 };
 

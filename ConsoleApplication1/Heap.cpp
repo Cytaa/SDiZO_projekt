@@ -83,10 +83,9 @@ void Heap::repair()
 void Heap::remove(int data)
 {
 	int* newArray = new int[size - 1];
-	int i = 0;
 	int y = 0;
 	
-	for(i ;i < size - 1; i++)
+	for(int i = 0 ;i < size - 1; i++)
 	{
 		
 		if(array[i] == data)

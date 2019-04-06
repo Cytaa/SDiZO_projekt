@@ -53,8 +53,9 @@ void PUDialog:: showMenu()
 		break;
 	case 3:
 		std::cout << "Co chcesz zrobic na kopcu\n";
-
 		system("CLS");
+		heapOptions(heap);
+		
 		
 		
 
@@ -396,11 +397,19 @@ void PUDialog::heapOptions(Heap* heap)
 		heapOptions(heap);
 		break;
 	case 2:
-
-		//heapAddingOptions(heap);
+		std::cout << "Ile wartosci chcesz doda?\n";
+		std::cin >> chooser;
+		std::cout << "Wprowadz wartosci\n";
+		for(int i = 0; i < chooser; i++)
+		{
+			std::cin >> helper;
+			heap->add(helper);
+		}
+		heapOptions(heap);
+		system("CLS");
 		break;
 	case 3:
-		//heapRemovingOptions(heap);
+		
 		break;
 	case 4:
 		system("CLS");
@@ -415,3 +424,6 @@ void PUDialog::heapOptions(Heap* heap)
 
 	}
 }
+
+
+
