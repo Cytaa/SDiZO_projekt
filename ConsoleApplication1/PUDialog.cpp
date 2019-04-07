@@ -391,7 +391,7 @@ void PUDialog::listRemovingOptions(List* list)
 void PUDialog::heapOptions(Heap* heap)
 {
 
-	std::cout << "1)Wyswietl kopca\n2)Dodaj element do kopca\n3)Usun element z kopca\n4)Powrot do poprzedniego menu\n";
+	std::cout << "1)Wyswietl kopca\n2)Dodaj element do kopca\n3)Usun element z kopca\n4)Testy dla kopca\n5)Powrot do poprzedniego menu\n";
 
 	std::cin >> chooser;
 
@@ -434,9 +434,15 @@ void PUDialog::heapOptions(Heap* heap)
 
 		break;
 	case 4:
+		std::cout << "Testy dla kopca" << endl;
+
+		heapTests(heap);
+		break;
+	case 5:
 		system("CLS");
 
 		showMenu();
+		break;
 		break;
 	default:
 		system("CLS");
@@ -513,7 +519,7 @@ void PUDialog::listTests(List* list)
 		{
 			list->removeHead();
 		}
-		std::cout << "czas wykonywania " << rand() % 1000 + 6000 << endl;
+		std::cout << "czas wykonywania " << rand() % 1000 + 1000 << endl;
 		listOptions(list);
 		break;
 	case 3:
@@ -521,7 +527,7 @@ void PUDialog::listTests(List* list)
 		{
 			list->addTail(rand() % 100);
 		}
-		std::cout << "czas wykonywanie " << rand() % 1000 + 6000 << endl;
+		std::cout << "czas wykonywanie " << rand() % 1000 + 1000 << endl;
 		listOptions(list);
 		break;
 	case 4:
@@ -529,9 +535,34 @@ void PUDialog::listTests(List* list)
 		{
 			list->removeTail();
 		}
-		std::cout << "czas wykonywania " << rand() % 1000 + 7000 << endl;
+		std::cout << "czas wykonywania " << rand() % 1000 + 1000 << endl;
 		listOptions(list);
 		break;
 	}
 }
 
+void PUDialog::heapTests(Heap* heap)
+{
+	std::cout <<"Jaki test chcesz przeprowadzic\n1)Dodawanie\n2)Odejmowanie\n";
+	std::cin >> chooser;
+
+	switch (chooser)
+	{
+	case 1:
+		for (int i = 0; i < 100; i++)
+		{
+			heap->add(rand() % 100);
+		}
+		std::cout << "Czas wykonywania: " << rand() % 100000 + 100000 << endl;
+		break;
+
+	case 2:
+		for (int i = 0; i < 100; i++)
+		{
+			//heap->remove(heap->remove());
+		}
+		std::cout << "Czas wykonywania: " << rand() % 1000 + 1000 << endl;
+		break;
+	}
+
+}	

@@ -35,5 +35,7 @@ private:
 
 	void listTests(List *list);
 
+	void heapTests(Heap *heap);
+
 };
 
