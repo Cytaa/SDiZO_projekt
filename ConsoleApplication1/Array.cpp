@@ -1,7 +1,9 @@
 ﻿#include "pch.h"
 #include "Array.h"
+#include "Time.h"
 #include <cstddef>
 #include <iostream>
+#include<stdlib.h>
 
 Array::Array()
 {
@@ -201,3 +203,5 @@ void Array::printArray()
 	else
 		std::cout << "Tablica jest pusta, nie ma czego wypisywac\n";
 }
+
+

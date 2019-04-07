@@ -7,14 +7,16 @@ using namespace std;
 using namespace std::chrono;
 
 class Time {
-
-	Time();
 	
-	~Time();
+	
 	
 	public:
 	high_resolution_clock::time_point startingTime;
 	high_resolution_clock::time_point endingTime;
+
+	Time();
+
+	~Time();
 
 	void start();
 

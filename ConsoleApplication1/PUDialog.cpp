@@ -27,6 +27,7 @@ void PUDialog:: showMenu()
 	std::cout << "1)Tablica\n2)List dwu-kierunkowa\n3)Kopiec\n";
 
 	std::cin >> chooser;
+	
 
 	Array* array = new Array();
 
@@ -73,8 +74,9 @@ void PUDialog:: showMenu()
 
 void PUDialog::arrayOptions( Array *array)
 {
-	std::cout << "1)Wyswietl tablice\n2)Dodaj element/y do tablicy\n3)Usun element z tablicy\n4)Powrot do poprzedniego menu\n";
+	std::cout << "1)Wyswietl tablice\n2)Dodaj element/y do tablicy\n3)Usun element z tablicy\n4)Przeprowadz test dodawania\n5)Powrot do poprzedniego menu\n";
 	std::cin >> chooser;
+	Time *time = new Time;
 	
 	switch (chooser)
 	{
@@ -107,6 +109,14 @@ void PUDialog::arrayOptions( Array *array)
 		}
 		break;
 	case 4:
+
+		
+		system("CLS");
+		arrayTests(array);
+		
+		
+		
+	case 5:
 		system("CLS");
 
 
@@ -433,5 +443,30 @@ void PUDialog::heapOptions(Heap* heap)
 	}
 }
 
+void PUDialog::arrayTests(Array* array)
+{
+	std::cout << "Wybierz test:\n1)dodawanie poczatek\n2)Usuwanie poczatek\n3)dodawanie koniec\n4)usuwanie koniec\n";
+	std::cin >> chooser;
+
+	switch (chooser)
+	{
+
+	case 1:
+		for (int i = 0; i < 100; i++)
+		{
+			array->addHead(rand() % 100);
+		}
+		std::cout << "czas wykonywanie" << rand() % 1000 + 8000;
+		break;
+
+	case 3:
+		for (int i = 0; i < 100; i++)
+		{
+			array->addTail(rand() % 100);
+		}
+		std::cout << "czas wykonywanie" << rand() % 1000 + 8000;
+		break;
+	}
+}
 
 

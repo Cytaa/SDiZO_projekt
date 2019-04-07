@@ -31,5 +31,7 @@ private:
 
 	void listRemovingOptions(List *list);
 
+	void arrayTests(Array *array);
+
 };
 

@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Time.h"
 
 class Array
 {
@@ -29,6 +30,8 @@ public:
 	void printArray();
 
 	bool exisist(int value);
+
+	void test(int number);
 	
 
 
