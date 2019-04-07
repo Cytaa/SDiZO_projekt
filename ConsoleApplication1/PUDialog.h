@@ -33,5 +33,7 @@ private:
 
 	void arrayTests(Array *array);
 
+	void listTests(List *list);
+
 };
 

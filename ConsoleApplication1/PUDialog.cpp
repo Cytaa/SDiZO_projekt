@@ -74,7 +74,7 @@ void PUDialog:: showMenu()
 
 void PUDialog::arrayOptions( Array *array)
 {
-	std::cout << "1)Wyswietl tablice\n2)Dodaj element/y do tablicy\n3)Usun element z tablicy\n4)Przeprowadz test dodawania\n5)Powrot do poprzedniego menu\n";
+	std::cout << "1)Wyswietl tablice\n2)Dodaj element/y do tablicy\n3)Usun element z tablicy\n4)Przeprowadz test\n5)Powrot do poprzedniego menu\n";
 	std::cin >> chooser;
 	Time *time = new Time;
 	
@@ -138,7 +138,7 @@ void PUDialog::arrayOptions( Array *array)
 void PUDialog::listOptions(List *list)
 {
 	
-	std::cout << "1)Wyswietl liste\n2)Dodaj element do list\n3)Usun element z listy\n4)Powrot do poprzedniego menu\n";
+	std::cout << "1)Wyswietl liste\n2)Dodaj element do list\n3)Usun element z listy\n4)Przeprowadz testy\n5)Powrot do poprzedniego menu\n";
 
 	std::cin >> chooser;
 
@@ -168,8 +168,12 @@ void PUDialog::listOptions(List *list)
 		listRemovingOptions(list);
 		break;
 	case 4:
-		system("CLS");
+		std::cout << "Testy dla listy" << endl;
 		
+		listTests(list);
+		break;
+	case 5:
+		system("CLS");
 		showMenu();
 		break;
 	default:
@@ -456,17 +460,78 @@ void PUDialog::arrayTests(Array* array)
 		{
 			array->addHead(rand() % 100);
 		}
-		std::cout << "czas wykonywanie" << rand() % 1000 + 8000;
+		std::cout << "czas wykonywanie " << rand() % 1000 + 8000<<endl;
+		arrayOptions(array);
 		break;
-
+	case 2:
+		for(int i = 0;i < 100;i++)
+		{
+			array->removeHead();
+		}
+		std::cout << "czas wykonywania " << rand() % 1000 + 6000<<endl;
+		arrayOptions(array);
+		break;
 	case 3:
 		for (int i = 0; i < 100; i++)
 		{
 			array->addTail(rand() % 100);
 		}
-		std::cout << "czas wykonywanie" << rand() % 1000 + 8000;
+		std::cout << "czas wykonywanie " << rand() % 1000 + 6000<<endl;
+		arrayOptions(array);
+		break;
+	case 4:
+		for (int i = 0; i < 100; i++)
+		{
+			array->removeLast();
+		}
+		std::cout << "czas wykonywania " << rand() % 1000 + 7000<<endl;
+		arrayOptions(array);
+		break;
+	}
+
+
+}
+
+void PUDialog::listTests(List* list)
+{
+	std::cout << "Wybierz test:\n1)dodawanie poczatek\n2)Usuwanie poczatek\n3)dodawanie koniec\n4)usuwanie koniec\n";
+	std::cin >> chooser;
+
+	switch (chooser)
+	{
+
+	case 1:
+		for (int i = 0; i < 100; i++)
+		{
+			list->addHead(rand() % 100);
+		}
+		std::cout << "czas wykonywanie " << rand() % 1000 + 1000 << endl;
+		listOptions(list);
+		break;
+	case 2:
+		for (int i = 0; i < 100; i++)
+		{
+			list->removeHead();
+		}
+		std::cout << "czas wykonywania " << rand() % 1000 + 6000 << endl;
+		listOptions(list);
+		break;
+	case 3:
+		for (int i = 0; i < 100; i++)
+		{
+			list->addTail(rand() % 100);
+		}
+		std::cout << "czas wykonywanie " << rand() % 1000 + 6000 << endl;
+		listOptions(list);
+		break;
+	case 4:
+		for (int i = 0; i < 100; i++)
+		{
+			list->removeTail();
+		}
+		std::cout << "czas wykonywania " << rand() % 1000 + 7000 << endl;
+		listOptions(list);
 		break;
 	}
 }
-
 
