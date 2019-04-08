@@ -136,3 +136,17 @@ void Heap::print()
 	std::cout << std::endl;
 }
 
+int Heap::exists(int data)
+{
+	if(size > 0)
+	{
+		for(int i = 0; i < size; i++)
+		{
+			if(array[i] == data)
+			{
+				return i;
+			}
+		}
+	}
+	std::cout << "Brak danej liczby\n";
+}

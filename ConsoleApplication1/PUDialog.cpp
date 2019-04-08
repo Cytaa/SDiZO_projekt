@@ -406,7 +406,7 @@ void PUDialog::listRemovingOptions(List* list)
 void PUDialog::heapOptions(Heap* heap)
 {
 
-	std::cout << "1)Wyswietl kopca\n2)Dodaj element do kopca\n3)Usun element z kopca\n4)Testy dla kopca\n5)Powrot do poprzedniego menu\n";
+	std::cout << "1)Wyswietl kopca\n2)Dodaj element do kopca\n3)Usun element z kopca\n4)Testy dla kopca\n5)Szukaj liczby\n6)Wroc do poprzedniego menu\n";
 
 	std::cin >> chooser;
 
@@ -453,11 +453,18 @@ void PUDialog::heapOptions(Heap* heap)
 
 		heapTests(heap);
 		break;
-	case 5:
+	case 6:
 		system("CLS");
 
 		showMenu();
 		break;
+	case 5:
+		std::cout << "Podaj liczbe ktora chcesz znalesc\n";
+		std::cin >> chooser;
+
+		std::cout<<heap->exists(chooser)<<"\n";
+		heapOptions(heap);
+		
 		break;
 	default:
 		system("CLS");

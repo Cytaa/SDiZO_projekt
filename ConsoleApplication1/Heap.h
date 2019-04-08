@@ -14,7 +14,7 @@ public:
 
 	void remove(int data);
 
-	bool exists(int data);
+	int exists(int data);
 
 	void print();
 
