@@ -93,7 +93,7 @@ void Heap::remove(int data)
 				newArray[y] = array[y];
 			}
 
-			for(int y = 0;y < size; y++)
+			for(int y = i + 1;y < size; y++)
 			{
 				newArray[y - 1] = array[y];
 			}

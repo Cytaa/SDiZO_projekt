@@ -179,7 +179,7 @@ void List::print()
 }
 
 
-bool List::exsists(int data)
+int List::exsists(int data)
 {
 	current = first;
 	
@@ -187,7 +187,7 @@ bool List::exsists(int data)
 	{
 		if(data == current->data)
 		{
-			return true;
+			return i;
 		}
 		current = current->next;
 	}

@@ -27,7 +27,6 @@ void PUDialog:: showMenu()
 	std::cout << "1)Tablica\n2)List dwu-kierunkowa\n3)Kopiec\n";
 
 	std::cin >> chooser;
-	
 
 	Array* array = new Array();
 
@@ -554,14 +553,16 @@ void PUDialog::heapTests(Heap* heap)
 			heap->add(rand() % 100);
 		}
 		std::cout << "Czas wykonywania: " << rand() % 100000 + 100000 << endl;
+		heapOptions(heap);
 		break;
 
-	case 2:
+	case 2:		
 		for (int i = 0; i < 100; i++)
 		{
-			//heap->remove(heap->remove());
+		
 		}
 		std::cout << "Czas wykonywania: " << rand() % 1000 + 1000 << endl;
+		heapOptions(heap);
 		break;
 	}
 
