@@ -29,7 +29,7 @@ public:
 
 	void printArray();
 
-	bool exisist(int value);
+	int exisist(int value);
 
 	void test(int number);
 	

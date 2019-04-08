@@ -73,7 +73,7 @@ void PUDialog:: showMenu()
 
 void PUDialog::arrayOptions( Array *array)
 {
-	std::cout << "1)Wyswietl tablice\n2)Dodaj element/y do tablicy\n3)Usun element z tablicy\n4)Przeprowadz test\n5)Powrot do poprzedniego menu\n";
+	std::cout << "1)Wyswietl tablice\n2)Dodaj element/y do tablicy\n3)Usun element z tablicy\n4)Przeprowadz test\n5)Znajdz element\n6)Wroc do poprzedniego menu\n";
 	std::cin >> chooser;
 	Time *time = new Time;
 	
@@ -114,12 +114,20 @@ void PUDialog::arrayOptions( Array *array)
 		arrayTests(array);
 		
 		
-		
-	case 5:
+		break;
+	case 6:
 		system("CLS");
 
 
 		showMenu();
+	case 5:
+		std::cout << "Wpisz liczbe ktora chcesz znalesc\n";
+		std::cin >> chooser;
+
+		std::cout<<array->exisist(chooser)<<"\n";
+		arrayOptions(array);
+
+		break;
 	default: 
 		
 		system("CLS");
@@ -137,7 +145,7 @@ void PUDialog::arrayOptions( Array *array)
 void PUDialog::listOptions(List *list)
 {
 	
-	std::cout << "1)Wyswietl liste\n2)Dodaj element do list\n3)Usun element z listy\n4)Przeprowadz testy\n5)Powrot do poprzedniego menu\n";
+	std::cout << "1)Wyswietl liste\n2)Dodaj element do list\n3)Usun element z listy\n4)Przeprowadz testy\n5)Szuakaj danej liczby\n6)Wroc do poprzedniego menu\n";
 
 	std::cin >> chooser;
 
@@ -171,9 +179,17 @@ void PUDialog::listOptions(List *list)
 		
 		listTests(list);
 		break;
-	case 5:
+	case 6:
 		system("CLS");
 		showMenu();
+		break;
+	case 5:
+		std::cout << "Podaj liczbe ktora chcesz znalesc\n";
+		std::cin >> chooser;
+
+		std::cout<<list->exsists(chooser)<<"\n";
+		listOptions(list);
+
 		break;
 	default:
 		system("CLS");

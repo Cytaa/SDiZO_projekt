@@ -179,14 +179,13 @@ void Array::removeFromMiddle(int position)
 }
 
 
-bool Array::exisist(int value)
+int Array::exisist(int value)
 {
 	for(int i = 0; i < size; i++)
 	{
-		if (head[i] == value) return true;
-		else
-			return false;
+		if (head[i] == value) return i;
 	}
+	std::cout << "Brak danej liczby\n";
 }
 
 

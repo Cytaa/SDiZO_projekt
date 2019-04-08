@@ -191,7 +191,7 @@ int List::exsists(int data)
 		}
 		current = current->next;
 	}
-	return false;
+	std::cout << "Nie ma takiej liczby\n";
 }
 
 
